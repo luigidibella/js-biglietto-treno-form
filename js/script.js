@@ -35,14 +35,18 @@ btn1.addEventListener('click',function(event){
   price = km * priceXKm;
   finalPrice = price;
 
-  if(selectEta.value = "Minorenne"){
+  if(selectEta.value === "Minorenne"){
     finalPrice *= 1 - (discoutYoung / 100);
     
-    messageDiscount = `<br> Dal momento che sei minorenne hai lo sconto del ${discoutYoung}%`
-  }else if(selectEta.value = "Over 65"){
+    messageDiscount = `<br>Dal momento che sei minorenne hai lo sconto del ${discoutYoung}% e quindi paghi &euro;${finalPrice.toFixed(2)}`
+  }else if(selectEta.value === "Maggiorenne"){
+    finalPrice = price;
+  
+    messageDiscount = `<br>Sei maggiorenne e quindi paghi &euro;${finalPrice.toFixed(2)}`
+  }else if(selectEta.value === "Over 65"){
     finalPrice *= 1 - (discoutSenior / 100);
   
-    messageDiscount = `<br>Sei un utente senior quindi hai uno sconto del ${discoutSenior}%`
+    messageDiscount = `<br>Sei un utente senior quindi hai uno sconto del ${discoutSenior}% e quindi paghi &euro;${finalPrice.toFixed(2)}`
   }
   message = `Con ${km} Km il prezzo del biglietto è &euro;${price.toFixed(2)}`
   message += messageDiscount;
