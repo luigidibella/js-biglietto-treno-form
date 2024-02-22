@@ -13,6 +13,7 @@ const discoutSenior = 40;
 // ELEMENTS
 const titoloInput = document.querySelector('.titolo-input');
 const titoloEta = document.querySelector('.titolo-eta');
+const titoloResult = document.querySelector('.titolo-result')
 
 // INPUT
 const input = document.querySelector('.input');
@@ -51,16 +52,18 @@ btn1.addEventListener('click',function(event){
   message = `Con ${km} Km il prezzo del biglietto è &euro;${price.toFixed(2)}`
   message += messageDiscount;
   console.log(message);
+  titoloResult.innerHTML = message;
 })
 
 btn2.addEventListener('click',function(event){
   event.preventDefault();
-  console.log(input.value);
+  /* console.log(input.value); */
   titoloInput.innerHTML = 'Km: ';
   input.value = ' ';
   
-  console.log(selectEta.value);
+  /* console.log(selectEta.value); */
   titoloEta.innerHTML = 'Età: ';
   selectEta.value = ' ';
-})
 
+  titoloResult.innerHTML = ' ';
+})
